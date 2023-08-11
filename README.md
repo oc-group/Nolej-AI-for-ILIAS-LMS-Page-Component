@@ -1,4 +1,4 @@
-# PCNolej
+# NolejPageComponent
 
 
 ## Install

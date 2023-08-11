@@ -19,7 +19,7 @@ class ilPCNolejPlugin extends ilPageComponentPlugin
 	 */
 	public function getPluginName()
 	{
-		return "PCNolej";
+		return "NolejPageComponent";
 	}
 
 	/**
