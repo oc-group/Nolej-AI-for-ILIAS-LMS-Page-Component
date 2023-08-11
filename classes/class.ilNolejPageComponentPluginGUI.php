@@ -67,7 +67,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	public function insert()
 	{
 		$form = $this->initForm(true);
-		$this->tpl->setContent($form->getHTML());
+		$this->tpl->setRightContent($form->getHTML());
 
 		// Skip form
 		// $a_properties = array();
