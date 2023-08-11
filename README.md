@@ -1,5 +1,5 @@
-# NolejPageComponent
-
+# Nolej Page Component
+This is a companion plugin for [Nolej repository plugin](https://github.com/oc-group/Nolej)
 
 ## Install
 
