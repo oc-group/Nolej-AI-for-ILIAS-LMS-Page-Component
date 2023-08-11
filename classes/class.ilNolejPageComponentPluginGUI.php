@@ -4,6 +4,7 @@
 
 require_once("./Customizing/global/plugins/Services/Repository/RepositoryObject/Nolej/classes/class.ilNolejPlugin.php");
 require_once("./Customizing/global/plugins/Services/Repository/RepositoryObject/Nolej/classes/class.ilObjNolejGUI.php");
+require_once("./Customizing/global/plugins/Services/Repository/RepositoryObject/Nolej/classes/class.ilNolejActivityManagementGUI.php");
 
 /**
  * Page Component GUI
@@ -134,11 +135,41 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	/**
 	 * Init creation editing form
 	 * @param bool $a_create true: create component, false: edit component
+	 * @return ilPropertyFormGUI
 	 */
 	protected function initForm($a_create = false)
 	{
+		global $DIC;
+		$db = $DIC->database();
+
 		$form = new ilPropertyFormGUI();
 		$properties = $this->getProperties();
+
+		if (!isset($properties["document_id"])) {
+			$documents = new ilRadioGroupInputGUI(
+				$this->plugin->txt("nolej_select"),
+				"document_id"
+			);
+
+			$nolej = ilNolejPlugin::getInstance();
+
+			$result = $db->queryF(
+				"SELECT document_id, title"
+				. " FROM " . ilNolejPlugin::TABLE_DOC
+				. " WHERE status = %s",
+				["integer"],
+				[ilNolejActivityManagementGUI::STATUS_COMPLETED]
+			);
+
+			while ($row = $db->fetchAssoc($result)) {
+				$document = new ilRadioOption($row["title"], $row["document_id"]);
+				$documents->addOption($document);
+			}
+
+			$form->addCommandButton("selectDocument", $this->plugin->txt("cmd_select"));
+			$form->addCommandButton("cancel", $this->plugin->txt("cmd_cancel"));
+			return $form;
+		}
 
 		$contentId = new ilNumberInputGUI(
 			"content ID",
