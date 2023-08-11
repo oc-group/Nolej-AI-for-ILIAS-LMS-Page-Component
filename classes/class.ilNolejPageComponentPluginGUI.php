@@ -26,6 +26,9 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	/** @var ilNolejPageComponentPlugin */
 	protected $plugin;
 
+	/** @var ilNolejPPlugin */
+	protected $nolej;
+
 	/**
 	 * ilNolejPageComponentPluginGUI constructor.
 	 */
@@ -34,6 +37,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 		global $DIC;
 		$this->ctrl = $DIC->ctrl();
 		$this->tpl = $DIC->ui()->mainTemplate();
+		$this->nolej = ilNolejPlugin::getInstance();
 
 		parent::__construct();
 	}
@@ -147,11 +151,9 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 
 		if (!isset($properties["document_id"])) {
 			$documents = new ilRadioGroupInputGUI(
-				$this->plugin->txt("nolej_select"),
+				$this->nolej->txt("module_select"),
 				"document_id"
 			);
-
-			$nolej = ilNolejPlugin::getInstance();
 
 			$result = $db->queryF(
 				"SELECT document_id, title"
@@ -168,8 +170,8 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 
 			$form->addItem($documents);
 
-			$form->addCommandButton("selectDocument", $this->plugin->txt("cmd_select"));
-			$form->addCommandButton("cancel", $this->plugin->txt("cmd_cancel"));
+			$form->addCommandButton("chooseDocument", $this->nolej->txt("cmd_choose"));
+			$form->addCommandButton("cancel", $this->nolej->txt("cmd_cancel"));
 			return $form;
 		}
 
@@ -183,13 +185,13 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 
 		if ($a_create) {
 			$this->addCreationButton($form);
-			$form->addCommandButton("cancel", $this->plugin->txt("cmd_cancel"));
-			$form->setTitle($this->plugin->txt("cmd_insert"));
+			$form->addCommandButton("cancel", $this->nolej->txt("cmd_cancel"));
+			$form->setTitle($this->nolej->txt("cmd_insert"));
 			$form->setFormAction($this->ctrl->getFormAction($this, "create"));
 		} else {
-			$form->addCommandButton("update", $this->plugin->txt("cmd_save"));
-			$form->addCommandButton("cancel", $this->plugin->txt("cmd_cancel"));
-			$form->setTitle($this->plugin->txt("cmd_edit"));
+			$form->addCommandButton("update", $this->nolej->txt("cmd_save"));
+			$form->addCommandButton("cancel", $this->nolej->txt("cmd_cancel"));
+			$form->setTitle($this->nolej->txt("cmd_edit"));
 			$form->setFormAction($this->ctrl->getFormAction($this, "update"));
 		}
 
@@ -246,8 +248,6 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 			return "<p>Activity not found!</p>";
 		}
 
-		$nolej = ilNolejPlugin::getInstance();
-
 		$result = $db->queryF(
 			"SELECT d.title, c.type"
 			. " FROM " . ilNolejPlugin::TABLE_DOC . " d"
@@ -260,8 +260,8 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 
 		if ($row = $db->fetchAssoc($result)) {
 			return sprintf(
-				"<p>" . $nolej->txt("activities_selected") . "</p>",
-				$nolej->txt("activities_" . $row["type"]),
+				"<p>" . $this->nolej->txt("activities_selected") . "</p>",
+				$this->nolej->txt("activities_" . $row["type"]),
 				$row["title"]
 			);
 		}
