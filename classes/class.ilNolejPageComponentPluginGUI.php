@@ -166,6 +166,8 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 				$documents->addOption($document);
 			}
 
+			$form->addItem($documents);
+
 			$form->addCommandButton("selectDocument", $this->plugin->txt("cmd_select"));
 			$form->addCommandButton("cancel", $this->plugin->txt("cmd_cancel"));
 			return $form;
