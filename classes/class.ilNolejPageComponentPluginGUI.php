@@ -5,13 +5,13 @@
 /**
  * Login Help Page Component GUI
  *
- * @ilCtrl_isCalledBy ilPCNolejPluginGUI: ilPCPluggedGUI
- * @ilCtrl_isCalledBy ilPCNolejPluginGUI: ilUIPluginRouterGUI
- * @ilCtrl_Calls ilPCNolejPluginGUI: ilPasswordAssistanceGUI
+ * @ilCtrl_isCalledBy ilNolejPageComponentPluginGUI: ilPCPluggedGUI
+ * @ilCtrl_isCalledBy ilNolejPageComponentPluginGUI: ilUIPluginRouterGUI
+ * @ilCtrl_Calls ilNolejPageComponentPluginGUI: ilPasswordAssistanceGUI
  * 
  * @author Vincenzo Padula <vincenzo@oc-group.eu>
  */
-class ilPCNolejPluginGUI extends ilPageComponentPluginGUI
+class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 {
 	/** @var ilCtrl $ctrl */
 	protected $ctrl;
@@ -19,11 +19,11 @@ class ilPCNolejPluginGUI extends ilPageComponentPluginGUI
 	/** @var ilTemplate $tpl */
 	protected $tpl;
 
-	/** @var ilPCNolejPlugin */
+	/** @var ilNolejPageComponentPlugin */
 	protected $plugin;
 
 	/**
-	 * ilPCNolejPluginGUI constructor.
+	 * ilNolejPageComponentPluginGUI constructor.
 	 */
 	public function __construct()
 	{
@@ -123,7 +123,7 @@ class ilPCNolejPluginGUI extends ilPageComponentPluginGUI
 	public function viewPage()
 	{
 		// $properties = $this->getProperties();
-		// $content = new ilPCNolej($this->plugin, $properties["settings_id"]);
+		// $content = new ilNolejPageComponent($this->plugin, $properties["settings_id"]);
 		// $renderer = new ilExternalContentRenderer($content);
 		// $renderer->render();
 	}

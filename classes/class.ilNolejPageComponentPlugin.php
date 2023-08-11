@@ -3,11 +3,11 @@
 /* Copyright (c) 1998-2009 ILIAS open source, Extended GPL, see https://github.com/ILIAS-eLearning/ILIAS/tree/trunk/docs/LICENSE */
 
 /**
- * PCNolej Page Component Plugin
+ * NolejPageComponent Page Component Plugin
  * 
  * @author Vincenzo Padula <vincenzo@oc-group.eu>
  */
-class ilPCNolejPlugin extends ilPageComponentPlugin
+class ilNolejPageComponentPlugin extends ilPageComponentPlugin
 {
 	/** @var self */
 	protected static $instance;
@@ -25,7 +25,7 @@ class ilPCNolejPlugin extends ilPageComponentPlugin
 	/**
 	 * Check if parent type is valid
 	 * @see getParentType() of classes extending ilPageObject
-	 * @see PCNolej::getReturnUrl()
+	 * @see NolejPageComponent::getReturnUrl()
 	 * @return bool
 	 */
 	public function isValidParentType($a_parent_type)
