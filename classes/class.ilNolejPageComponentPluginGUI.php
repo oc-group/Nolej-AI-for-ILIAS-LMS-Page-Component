@@ -67,7 +67,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	public function insert()
 	{
 		$form = $this->initForm(true);
-		$this->tpl->setRightContent($form->getHTML());
+		$this->tpl->setContent($form->getHTML());
 
 		// Skip form
 		// $a_properties = array();
@@ -98,7 +98,8 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	public function edit()
 	{
 		$form = $this->initForm(false);
-		$this->tpl->setContent($form->getHTML());
+		// $this->tpl->setContent($form->getHTML());
+		$this->tpl->setContent(print_r($this->getProperties(), true));
 	}
 
 	/**
