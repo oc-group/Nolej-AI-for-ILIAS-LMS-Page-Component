@@ -138,12 +138,14 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	protected function initForm($a_create = false)
 	{
 		$form = new ilPropertyFormGUI();
+		$properties = $this->getProperties();
 
 		$contentId = new ilNumberInputGUI(
 			"content ID",
 			"content_id"
 		);
 		$contentId->allowDecimals(false);
+		$contentId->setValue($properties["content_id"] ?? null);
 		$form->addItem($contentId);
 
 		if ($a_create) {
