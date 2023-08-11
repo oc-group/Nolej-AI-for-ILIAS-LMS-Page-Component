@@ -1,0 +1,9 @@
+cmd_cancel#:#Cancel
+cmd_edit#:#Edit PCNolej
+cmd_insert#:#Insert PCNolej
+cmd_save#:#Save
+msg_obj_created#:#PCNolej added.
+msg_obj_modified#:#PCNolej updated.
+plugin_description#:#
+plugin_title#:#PCNolej
+tab_configure#:#Configure
