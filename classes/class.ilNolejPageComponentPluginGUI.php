@@ -138,12 +138,12 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 
 		if ($a_create) {
 			$this->addCreationButton($form);
-			$form->addCommandButton("cancel", $this->lng->txt("cmd_cancel"));
+			$form->addCommandButton("cancel", $this->plugin->txt("cmd_cancel"));
 			$form->setTitle($this->plugin->txt("cmd_insert"));
 			$form->setFormAction($this->ctrl->getFormAction($this, "create"));
 		} else {
-			$form->addCommandButton("update", $this->lng->txt("cmd_save"));
-			$form->addCommandButton("cancel", $this->lng->txt("cmd_cancel"));
+			$form->addCommandButton("update", $this->plugin->txt("cmd_save"));
+			$form->addCommandButton("cancel", $this->plugin->txt("cmd_cancel"));
 			$form->setTitle($this->plugin->txt("cmd_edit"));
 			$form->setFormAction($this->ctrl->getFormAction($this, "update"));
 		}
