@@ -67,9 +67,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	public function insert()
 	{
 		$form = $this->initForm(true);
-		// $this->tpl->setContent($form->getHTML());
-		var_dump(get_object_vars($this));
-		die();
+		$this->tpl->setContent($form->getHTML());
 
 		// Skip form
 		// $a_properties = array();
@@ -139,6 +137,13 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	{
 		$form = new ilPropertyFormGUI();
 
+		$contentId = new ilNumberInputGUI(
+			"contentId",
+			"contentId"
+		);
+		$contentId->allowDecimals(false);
+		$form->addItem($contentId);
+
 		if ($a_create) {
 			$this->addCreationButton($form);
 			$form->addCommandButton("cancel", $this->plugin->txt("cmd_cancel"));
@@ -162,7 +167,10 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	 */
 	protected function saveForm($form, $a_create)
 	{
-		$a_properties = array();
+		$contentId = $form->getInput("contentId");
+		$a_properties = array(
+			"contentId" => $contentId
+		);
 		if ($a_create) {
 			return $this->createElement($a_properties);
 		}
