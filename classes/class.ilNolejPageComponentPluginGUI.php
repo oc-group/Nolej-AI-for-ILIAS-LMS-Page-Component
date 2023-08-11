@@ -2,6 +2,7 @@
 
 /* Copyright (c) 1998-2009 ILIAS open source, Extended GPL, see https://github.com/ILIAS-eLearning/ILIAS/tree/trunk/docs/LICENSE */
 
+require_once("./Customizing/global/plugins/Services/Repository/RepositoryObject/Nolej/classes/class.ilNolejPlugin.php");
 require_once("./Customizing/global/plugins/Services/Repository/RepositoryObject/Nolej/classes/class.ilObjNolejGUI.php");
 
 /**
@@ -93,7 +94,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 		}
 		$this->tpl->setContent($form->getHtml());
 	}
-	
+
 	/**
 	 * Init the properties form and load the stored values
 	 */
@@ -195,7 +196,8 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	 */
 	public function getElementHTML($a_mode, array $a_properties, $a_plugin_version)
 	{
-		global $lng, $ilSetting;
+		global $DIC, $lng, $ilSetting;
+		$db = $DIC->database();
 
 		if ($a_mode == "presentation") {
 			if (!isset($a_properties["content_id"])) {
@@ -205,7 +207,31 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 			return ilObjNolejGUI::getH5PHtml((int) $a_properties["content_id"]);
 		}
 
-		return "<p>New page component! In " . $a_mode . " mode!</p>";
+		if (!isset($a_properties["content_id"])) {
+			return "Activity not found!";
+		}
+
+		$nolej = ilNolejPlugin::getInstance();
+
+		$result = $db->queryF(
+			"SELECT d.title, c.type"
+			. " FROM " . ilNolejPlugin::TABLE_DOC . " d"
+			. " INNER JOIN " . ilNolejPlugin::TABLE_H5P . " c"
+			. " ON c.document_id = d.document_id"
+			. " WHERE c.content_id = %s",
+			["integer"],
+			[$a_properties["content_id"]]
+		);
+
+		if ($row = $db->fetchAssoc($result)) {
+			return sprintf(
+				$nolej->txt("activities_selected"),
+				$nolej->txt("activities_" . $row["type"]),
+				$row["title"]
+			);
+		}
+
+		return "Activity does not exist!";
 	}
 
 }
