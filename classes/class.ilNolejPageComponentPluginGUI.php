@@ -68,7 +68,8 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	{
 		$form = $this->initForm(true);
 		// $this->tpl->setContent($form->getHTML());
-		$this->tpl->setContent(print_r(get_object_vars($this), true));
+		var_dump(get_object_vars($this));
+		die();
 
 		// Skip form
 		// $a_properties = array();
