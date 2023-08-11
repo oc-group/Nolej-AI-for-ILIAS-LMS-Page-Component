@@ -100,8 +100,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	public function edit()
 	{
 		$form = $this->initForm(false);
-		// $this->tpl->setContent($form->getHTML());
-		$this->tpl->setContent(print_r($this->getProperties(), true));
+		$this->tpl->setContent($form->getHTML());
 	}
 
 	/**
