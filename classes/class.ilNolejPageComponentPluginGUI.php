@@ -2,8 +2,10 @@
 
 /* Copyright (c) 1998-2009 ILIAS open source, Extended GPL, see https://github.com/ILIAS-eLearning/ILIAS/tree/trunk/docs/LICENSE */
 
+require_once("./Customizing/global/plugins/Services/Repository/RepositoryObject/Nolej/classes/class.ilObjNolejGUI.php");
+
 /**
- * Login Help Page Component GUI
+ * Page Component GUI
  *
  * @ilCtrl_isCalledBy ilNolejPageComponentPluginGUI: ilPCPluggedGUI
  * @ilCtrl_isCalledBy ilNolejPageComponentPluginGUI: ilUIPluginRouterGUI
@@ -138,8 +140,8 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 		$form = new ilPropertyFormGUI();
 
 		$contentId = new ilNumberInputGUI(
-			"contentId",
-			"contentId"
+			"content ID",
+			"content_id"
 		);
 		$contentId->allowDecimals(false);
 		$form->addItem($contentId);
@@ -167,9 +169,9 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	 */
 	protected function saveForm($form, $a_create)
 	{
-		$contentId = $form->getInput("contentId");
+		$contentId = $form->getInput("content_id");
 		$a_properties = array(
-			"contentId" => $contentId
+			"content_id" => $contentId
 		);
 		if ($a_create) {
 			return $this->createElement($a_properties);
@@ -195,6 +197,14 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	public function getElementHTML($a_mode, array $a_properties, $a_plugin_version)
 	{
 		global $lng, $ilSetting;
+
+		if ($a_mode == "presentation") {
+			if (!isset($a_properties["content_id"])) {
+				return "<p>Activity not found!</p>";
+			}
+
+			return ilObjNolejGUI::getH5PHtml((int) $a_properties["content_id"]);
+		}
 
 		return "<p>New page component! In " . $a_mode . " mode!</p>";
 	}
