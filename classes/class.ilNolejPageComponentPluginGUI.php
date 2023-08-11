@@ -185,7 +185,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	{
 		global $lng, $ilSetting;
 
-		return "<p>New page component!</p>";
+		return "<p>New page component! In " . $a_mode . " mode!</p>";
 	}
 
 }
