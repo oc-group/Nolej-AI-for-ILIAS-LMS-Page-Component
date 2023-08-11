@@ -208,7 +208,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 		}
 
 		if (!isset($a_properties["content_id"])) {
-			return "Activity not found!";
+			return "<p>Activity not found!</p>";
 		}
 
 		$nolej = ilNolejPlugin::getInstance();
@@ -225,13 +225,13 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 
 		if ($row = $db->fetchAssoc($result)) {
 			return sprintf(
-				$nolej->txt("activities_selected"),
+				"<p>" . $nolej->txt("activities_selected") . "</p>",
 				$nolej->txt("activities_" . $row["type"]),
 				$row["title"]
 			);
 		}
 
-		return "Activity does not exist!";
+		return "<p>Activity does not exist!</p>";
 	}
 
 }
