@@ -141,7 +141,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	 */
 	public function viewPage()
 	{
-		// $content = new ilNolejPageComponent($this->plugin, $this->doc_properties["settings_id"]);
+		// $content = new ilNolejPageComponent($this->plugin, $properties["settings_id"]);
 		// $renderer = new ilExternalContentRenderer($content);
 		// $renderer->render();
 	}
@@ -243,9 +243,8 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 	 */
 	protected function saveForm($form, $a_create)
 	{
-		$properties = $this->getProperties();
-		$documentId = $form->getInput("document_id") ?: $properties["document_id"];
-		$contentId = $form->getInput("content_id") ?: $properties["content_id"];
+		$documentId = $form->getInput("document_id");
+		$contentId = $form->getInput("content_id");
 
 		$a_properties = array(
 			"document_id" => $documentId,
