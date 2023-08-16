@@ -13,7 +13,7 @@ class ilNolejPageComponentPlugin extends ilPageComponentPlugin
 	protected static $instance;
 
 	/**
-	 * Get plugin name 
+	 * Get plugin name
 	 *
 	 * @return string
 	 */
