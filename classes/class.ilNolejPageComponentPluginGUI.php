@@ -181,13 +181,13 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 
 		while ($row = $this->db->fetchAssoc($result)) {
 			$module = new ilRadioOption($row["title"], $row["document_id"]);
-			$selected = false;
-			if (!$a_create && $properties["document_id"] == $row["document_id"]) {
-				$module->setChecked(true);
-				$selected = true;
-			}
+			$selected = (!$a_create && $properties["document_id"] == $row["document_id"]);
 			$this->appendActivitiesListForm($module, $row["document_id"], $selected);
 			$modules->addOption($module);
+		}
+
+		if (!$a_create) {
+			$modules->setValue($properties["document_id"]);
 		}
 
 		$form->addItem($modules);
@@ -227,12 +227,12 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 				$this->nolej->txt("activities_" . $row["type"]),
 				$row["content_id"]
 			);
-			if ($moduleSelected && $properties["content_id"] == $row["content_id"]) {
-				$activity->setChecked(true);
-			}
 			$activities->addOption($activity);
 		}
 
+		if ($moduleSelected) {
+			$activities->setValue($properties["content_id"]);
+		}
 		$module->addSubItem($activities);
 	}
 
