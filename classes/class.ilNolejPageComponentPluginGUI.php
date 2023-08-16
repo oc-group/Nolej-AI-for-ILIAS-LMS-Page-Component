@@ -192,6 +192,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 
 		$form->addItem($modules);
 
+		$form->setFormAction($this->ctrl->getFormAction($this));
 		$form->addCommandButton($a_create ? self::CMD_CREATE : self::CMD_UPDATE, $this->nolej->txt("cmd_choose"));
 		$form->addCommandButton(self::CMD_CANCEL, $this->nolej->txt("cmd_cancel"));
 		return $form;
