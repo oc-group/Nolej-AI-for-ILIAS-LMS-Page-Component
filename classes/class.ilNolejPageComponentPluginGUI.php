@@ -227,7 +227,11 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 				$this->nolej->txt("activities_" . $row["type"]),
 				$row["content_id"]
 			);
-			$activity->setInfo($row["generated"]);
+			$activity->setInfo(
+				ilDatePresentation::formatDate(
+					new ilDateTime($row["generated"], IL_CAL_UNIX)
+				)
+			);
 			$activities->addOption($activity);
 		}
 
