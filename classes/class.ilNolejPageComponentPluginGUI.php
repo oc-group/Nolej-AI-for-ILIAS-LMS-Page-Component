@@ -227,6 +227,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
 				$this->nolej->txt("activities_" . $row["type"]),
 				$row["content_id"]
 			);
+			$activity->setInfo($row["generated"]);
 			$activities->addOption($activity);
 		}
 
