@@ -298,7 +298,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
      */
     public function getElementHTML($a_mode, array $a_properties, $a_plugin_version)
     {
-        if ($a_mode == "presentation") {
+        if ($a_mode != "edit") {
             if (!isset($a_properties["content_id"])) {
                 return "<p>Activity not found!</p>";
             }
