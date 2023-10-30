@@ -1,9 +1,12 @@
 <?php
 
-/* Copyright (c) 1998-2009 ILIAS open source, Extended GPL, see https://github.com/ILIAS-eLearning/ILIAS/tree/trunk/docs/LICENSE */
-
 /**
+ * This file is part of Nolej Page Component Plugin for ILIAS,
+ * developed by OC Open Consulting to integrate ILIAS with Nolej
+ * software by Neuronys.
+ *
  * @author Vincenzo Padula <vincenzo@oc-group.eu>
+ * @copyright 2023 OC Open Consulting SB Srl
  */
 
 $id = "pcnlj";
