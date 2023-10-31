@@ -38,12 +38,6 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /** @var ilDBInterface */
     protected $db;
 
-    /** @var ilNolejPageComponentPlugin */
-    protected $plugin;
-
-    /** @var ilNolejPPlugin */
-    protected $nolej;
-
     /**
      * ilNolejPageComponentPluginGUI constructor.
      */

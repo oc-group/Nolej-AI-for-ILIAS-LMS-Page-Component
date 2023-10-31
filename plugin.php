@@ -11,8 +11,10 @@
 
 $id = "pcnlj";
 $version = "1.0";
+
 $ilias_min_version = "6.0";
 $ilias_max_version = "7.999";
+
 $responsible = "OC Open Consulting";
 $responsible_mail = "plugins@oc-group.eu";
 

@@ -14,8 +14,6 @@
  */
 class ilNolejPageComponentPlugin extends ilPageComponentPlugin
 {
-    /** @var self */
-    protected static $instance;
 
     /**
      * Get plugin name
