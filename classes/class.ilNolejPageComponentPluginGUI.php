@@ -54,7 +54,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /**
      * Execute command
      */
-    public function executeCommand()
+    public function executeCommand(): void
     {
         $next_class = $this->ctrl->getNextClass();
         switch ($next_class) {
@@ -72,7 +72,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
                         break;
                     default:
                         // Command not recognized
-                        return null;
+                        return;
                 }
                 break;
         }
@@ -96,7 +96,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /**
      * Create
      */
-    public function insert()
+    public function insert(): void
     {
         $form = $this->initForm(true);
         $this->tpl->setContent($form->getHTML());
@@ -110,13 +110,13 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /**
      * Save new pc element
      */
-    public function create()
+    public function create(): void
     {
         $form = $this->initForm(true);
 
         if ($form->checkInput()) {
             if ($this->saveForm($form, true)) {
-                ilUtil::sendSuccess($this->lng->txt("msg_obj_created"), true);
+                $this->tpl->setOnScreenMessage("success", $this->lng->txt("msg_obj_created"), true);
                 $this->returnToParent();
             }
             $form->setValuesByPost();
@@ -127,7 +127,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /**
      * Init the properties form and load the stored values
      */
-    public function edit()
+    public function edit(): void
     {
         $form = $this->initForm(false);
         $this->tpl->setContent($form->getHTML());
@@ -136,12 +136,12 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /**
      * Update
      */
-    public function update()
+    public function update(): void
     {
         $form = $this->initForm(false);
         if ($form->checkInput()) {
             if ($this->saveForm($form, false)) {
-                ilUtil::sendSuccess($this->lng->txt("msg_obj_modified"), true);
+                $this->tpl->setOnScreenMessage("success", $this->lng->txt("msg_obj_modified"), true);
                 $this->returnToParent();
             }
         }
@@ -152,7 +152,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /**
      * View Page
      */
-    public function viewPage()
+    public function viewPage(): void
     {
         // $content = new ilNolejPageComponent($this->plugin, $properties["settings_id"]);
         // $renderer = new ilExternalContentRenderer($content);
@@ -279,7 +279,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /**
      * Cancel
      */
-    public function cancel()
+    public function cancel(): void
     {
         $this->returnToParent();
     }
@@ -290,7 +290,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
      * @param string page mode (edit, presentation, print, preview, offline)
      * @return string html code
      */
-    public function getElementHTML($a_mode, array $a_properties, $a_plugin_version)
+    public function getElementHTML(string $a_mode, array $a_properties, string $a_plugin_version): string
     {
         if ($a_mode != "edit") {
             if (!isset($a_properties["content_id"])) {
