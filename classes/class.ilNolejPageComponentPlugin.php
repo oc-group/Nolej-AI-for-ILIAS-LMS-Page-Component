@@ -20,7 +20,7 @@ class ilNolejPageComponentPlugin extends ilPageComponentPlugin
      *
      * @return string
      */
-    public function getPluginName()
+    public function getPluginName(): string
     {
         return "NolejPageComponent";
     }
@@ -31,21 +31,10 @@ class ilNolejPageComponentPlugin extends ilPageComponentPlugin
      * @see NolejPageComponent::getReturnUrl()
      * @return bool
      */
-    public function isValidParentType($a_parent_type)
+    public function isValidParentType(string $a_parent_type): bool
     {
         // $a_parent_type can be auth, cat, crs, ...
         return true;
-    }
-
-    /**
-     * Handle an event
-     * @param string $a_component
-     * @param string $a_event
-     * @param mixed $a_parameter
-     */
-    public function handleEvent($a_component, $a_event, $a_parameter)
-    {
-        // nothing to do here yet
     }
 
     /**
@@ -53,7 +42,7 @@ class ilNolejPageComponentPlugin extends ilPageComponentPlugin
      * @param array 	$a_properties		properties saved in the page, (should be modified if neccessary)
      * @param string	$a_plugin_version	plugin version of the properties
      */
-    public function onClone(&$a_properties, $a_plugin_version)
+    public function onClone(array &$a_properties, string $a_plugin_version): void
     {
         // $settings_id = $a_properties["settings_id"];
         // if (!empty($settings_id))
@@ -69,10 +58,10 @@ class ilNolejPageComponentPlugin extends ilPageComponentPlugin
 
     /**
      * This function is called before the page content is deleted
-     * @param array 	$a_properties		properties saved in the page (will be deleted afterwards)
-     * @param string	$a_plugin_version	plugin version of the properties
+     * @param array $a_properties properties saved in the page (will be deleted afterwards)
+     * @param string $a_plugin_version plugin version of the properties
      */
-    public function onDelete($a_properties, $a_plugin_version)
+    public function onDelete(array $a_properties, string $a_plugin_version): void
     {
         // $settings_id = $a_properties["settings_id"];
         // if (!empty($settings_id))
