@@ -48,6 +48,10 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
         $this->db = $DIC->database();
         $this->tpl = $DIC->ui()->mainTemplate();
 
+        if (class_exists("ilNolejPlugin")) {
+            $DIC->language()->loadLanguageModule(ilNolejPlugin::PREFIX);
+        }
+
         parent::__construct();
     }
 
