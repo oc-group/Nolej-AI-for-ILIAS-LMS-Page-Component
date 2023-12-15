@@ -22,7 +22,7 @@ git clone https://github.com/oc-group/NolejPageComponent.git NolejPageComponent
 ### Install the plugin
 
 1. Go into `Administration` -> `Extending ILIAS` -> `Plugins`
-2. Look for the plugin "Nolej"
+2. Look for the plugin "NolejPageComponent"
 3. Click on `Actions` -> `Install`
 
 ### After installation
