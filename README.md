@@ -3,6 +3,9 @@ This is the companion plugin for [Nolej AI for ILIAS LMS](https://github.com/oc-
 
 Generate the activities with the main plugin, and insert them in your modules with this plugin.
 
+Note: this branch is for ILIAS 6 and 7. If you have ILIAS 8,
+see [branch main](https://github.com/oc-group/Nolej-AI-for-ILIAS-LMS-Page-Component/tree/main).
+
 ## Requirements
 
 * [Nolej AI for ILIAS LMS plugin](https://github.com/oc-group/Nolej-AI-for-ILIAS-LMS) installed and updated.
