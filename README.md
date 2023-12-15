@@ -8,6 +8,7 @@ see [branch release_7](https://github.com/oc-group/Nolej-AI-for-ILIAS-LMS-Page-C
 
 ## Requirements
 
+* ILIAS 8.x
 * [Nolej AI for ILIAS LMS plugin](https://github.com/oc-group/Nolej-AI-for-ILIAS-LMS) installed and updated.
 
 ## Installation
