@@ -14,8 +14,8 @@ Generate the activities with the main plugin, and insert them in your modules wi
 From the ILIAS directory, run:
 
 ```sh
-mkdir -p Customizing/global/plugins/Services/Repository/RepositoryObject
-cd Customizing/global/plugins/Services/Repository/RepositoryObject
+mkdir -p Customizing/global/plugins/Services/COPage/PageComponent
+cd Customizing/global/plugins/Services/COPage/PageComponent
 git clone https://github.com/oc-group/Nolej-AI-for-ILIAS-LMS-Page-Component.git NolejPageComponent
 ```
 
