@@ -16,7 +16,7 @@ From the ILIAS directory, run:
 ```sh
 mkdir -p Customizing/global/plugins/Services/Repository/RepositoryObject
 cd Customizing/global/plugins/Services/Repository/RepositoryObject
-git clone https://github.com/oc-group/NolejPageComponent.git NolejPageComponent
+git clone https://github.com/oc-group/Nolej-AI-for-ILIAS-LMS-Page-Component.git NolejPageComponent
 ```
 
 ### Install the plugin
