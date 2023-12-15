@@ -9,6 +9,7 @@ If you have ILIAS 8, see [branch main](https://github.com/oc-group/Nolej-AI-for-
 
 ## Requirements
 
+* ILIAS 8.x
 * [Nolej AI for ILIAS LMS plugin](https://github.com/oc-group/Nolej-AI-for-ILIAS-LMS) installed and updated.
 
 ## Installation
