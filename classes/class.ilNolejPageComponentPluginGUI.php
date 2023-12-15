@@ -100,7 +100,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /**
      * Create
      */
-    public function insert(): void
+    public function insert()
     {
         $form = $this->initForm(true);
         $this->tpl->setContent($form->getHTML());
@@ -114,7 +114,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /**
      * Save new pc element
      */
-    public function create(): void
+    public function create()
     {
         $form = $this->initForm(true);
 
@@ -131,7 +131,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /**
      * Init the properties form and load the stored values
      */
-    public function edit(): void
+    public function edit()
     {
         $form = $this->initForm(false);
         $this->tpl->setContent($form->getHTML());
@@ -140,7 +140,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /**
      * Update
      */
-    public function update(): void
+    public function update()
     {
         $form = $this->initForm(false);
         if ($form->checkInput()) {
@@ -156,7 +156,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /**
      * View Page
      */
-    public function viewPage(): void
+    public function viewPage()
     {
         // $content = new ilNolejPageComponent($this->plugin, $properties["settings_id"]);
         // $renderer = new ilExternalContentRenderer($content);
@@ -283,7 +283,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
     /**
      * Cancel
      */
-    public function cancel(): void
+    public function cancel()
     {
         $this->returnToParent();
     }
@@ -294,7 +294,7 @@ class ilNolejPageComponentPluginGUI extends ilPageComponentPluginGUI
      * @param string page mode (edit, presentation, print, preview, offline)
      * @return string html code
      */
-    public function getElementHTML(string $a_mode, array $a_properties, string $a_plugin_version): string
+    public function getElementHTML($a_mode, $a_properties, $a_plugin_version)
     {
         if ($a_mode != "edit") {
             if (!isset($a_properties["content_id"])) {
