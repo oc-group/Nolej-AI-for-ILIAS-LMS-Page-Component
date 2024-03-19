@@ -1,9 +1,9 @@
 cmd_cancel#:#Cancel
-cmd_edit#:#Edit Nolej
-cmd_insert#:#Insert Nolej
+cmd_edit#:#Edit NOLEJ
+cmd_insert#:#Insert NOLEJ
 cmd_save#:#Save
-msg_obj_created#:#Nolej added.
-msg_obj_modified#:#Nolej updated.
-plugin_description#:#
-plugin_title#:#Nolej
+msg_obj_created#:#NOLEJ added.
+msg_obj_modified#:#NOLEJ updated.
+plugin_description#:#NOLEJ Page Component companion plugin
+plugin_title#:#NOLEJ
 tab_configure#:#Configure
