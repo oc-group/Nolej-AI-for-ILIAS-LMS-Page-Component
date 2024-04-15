@@ -34,5 +34,5 @@ git clone https://github.com/oc-group/Nolej-AI-for-ILIAS-LMS-Page-Component.git 
 1. From the ILIAS directory, run:
 
 ```sh
-composer install --no-dev
+composer du
 ```
