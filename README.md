@@ -34,5 +34,5 @@ git clone -b release_7 https://github.com/oc-group/Nolej-AI-for-ILIAS-LMS-Page-C
 1. From the ILIAS directory, run:
 
 ```sh
-composer install --no-dev
+composer du
 ```
