@@ -1,3 +1,5 @@
+**Moved to [Neuronys/ilias-pgcp_nolej](https://github.com/Neuronys/ilias-pgcp_nolej)**
+
 # Nolej AI for ILIAS LMS Page Component
 This is the companion plugin for [Nolej AI for ILIAS LMS](https://github.com/oc-group/Nolej-AI-for-ILIAS-LMS).
 
